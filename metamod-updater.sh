@@ -6,8 +6,8 @@ if [ ! -f $SPATH/steam.inf ]; then
 fi
 mkdir -p $SPATH/.metamod-downloads/
 
-MM1="curl http://www.metamodsource.net/mmsdrop/1.11/"
-MM2=$(curl --silent http://www.metamodsource.net/mmsdrop/1.11/ | egrep -o "mm.*linux.tar.gz\"" | tail -n 1 | head -c -2)
+MM1="http://www.metamodsource.net/mmsdrop/1.11/"
+MM2=$(curl --silent $MM1 | egrep -o "mm.*linux.tar.gz\"" | tail -n 1 | head -c -2)
 if [ -f $SPATH/.metamod-downloads/$MM2 ];then
 	echo "MetaMod up to date, skipping."
 	exit 0
