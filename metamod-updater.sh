@@ -7,7 +7,7 @@ fi
 mkdir -p $SPATH/.metamod-downloads/
 
 MM1="http://www.metamodsource.net/mmsdrop/1.11/"
-MM2=$(wget -q -O- $MM1 | egrep -o "mm.*linux.tar.gz\"" | tail -n 1 | head -c -2)
+MM2=$(wget -q -O- $MM1 | egrep -o "mm.*linux.tar.gz\"" | head -n 1 | head -c -2) 
 if [ -f $SPATH/.metamod-downloads/$MM2 ];then
 	echo "MetaMod up to date, skipping."
 	exit 0
